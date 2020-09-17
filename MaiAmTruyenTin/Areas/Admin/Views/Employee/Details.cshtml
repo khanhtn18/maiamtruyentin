@@ -1,0 +1,269 @@
+﻿@model Model.EF.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div id="page_content_inner">
+    <div class="md-card-single">
+        <div class="md-card-content">
+            <div class="row">
+                <div class="col-md-4 col-lg-8" style="padding-top: 10px; padding-bottom: 10px">
+                    <h1 class="heading_b uk-margin-bottom" style="font-weight: 1000">QUẢN LÝ THÔNG TIN NHÂN VIÊN</h1>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                </div>
+
+                <div class="col-md-4 col-lg-2">
+                    <a class="btn btn-primary" href="/Admin/Employee/Index" title="Nhấn vào để xem danh sách nhân viên">XEM DANH SÁCH</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-grid" data-uk-grid-margin data-uk-grid-match id="user_profile">
+        <div class="uk-width-large-7-10">
+            <div class="md-card">
+                <div class="user_heading">
+                    <div class="user_heading_menu" data-uk-dropdown="{pos:'left-top'}">
+                        <i class="md-icon material-icons md-icon-light">&#xE5D4;</i>
+                        <div class="uk-dropdown uk-dropdown-small">
+                            <ul class="uk-nav">
+                                <li><a href="#">Action 1</a></li>
+                                <li><a href="#">Action 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="user_heading_avatar">
+                        <div class="thumbnail">
+                            <a href="@Model.Image" data-uk-lightbox="{group:'user-photos'}">
+                                <img src="@Model.Image" alt="user avatar" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="user_heading_content">
+                        <h2 class="heading_b uk-margin-bottom">
+                            <span class="uk-text-truncate">@Model.Name - @Model.Code</span>
+                            <span class="sub-heading">Giới tính: @Model.Gender | @Model.Age tuổi</span>
+                        </h2>
+                    </div>
+                    <a class="md-fab md-fab-small md-fab-accent" href="@Url.Action("Edit", "Employee", new { id = Model.ID } )">
+                        <i class="material-icons">&#xE150;</i>
+                    </a>
+                </div>
+                <div class="user_content">
+                    <ul id="user_profile_tabs" class="uk-tab" data-uk-tab="{connect:'#user_profile_tabs_content', animation:'slide-horizontal'}" data-uk-sticky="{ top: 48, media: 960 }">
+                        <li class="uk-active"><a href="#">Thông tin cơ bản</a></li>
+                        <li><a href="#">ẢNH MINH HỌA</a></li>
+                    </ul>
+                    <ul id="user_profile_tabs_content" class="uk-switcher uk-margin">
+                        <li>
+                            <div class="uk-grid uk-margin-medium-top uk-margin-large-bottom" data-uk-grid-margin>
+                                <div class="uk-width-large-1-2">
+                                    <h4 class="heading_c uk-margin-small-bottom">Thông tin cơ bản</h4>
+                                    <ul class="md-list md-list-addon">
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon uk-icon-user"></i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.Name</span>
+                                                <span class="uk-text-small uk-text-muted">Họ và tên</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon uk-icon-birthday-cake">&#xE158;</i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.DateOfBirth</span>
+                                                <span class="uk-text-small uk-text-muted">Ngày sinh</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon @if (Model.Gender == "Nam") { @Html.Raw("uk-icon-male")} else { @Html.Raw("uk-icon-female")}"></i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.Gender</span>
+                                                <span class="uk-text-small uk-text-muted">Giới tính</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon uk-icon-clock-o"></i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.Age</span>
+                                                <span class="uk-text-small uk-text-muted">Tuổi</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon uk-icon-user-plus" ></i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.Education</span>
+                                                <span class="uk-text-small uk-text-muted">Học vấn</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-addon-element">
+                                                <i class="md-list-addon-icon uk-icon-user-plus"></i>
+                                            </div>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading">@Model.Domicile</span>
+                                                <span class="uk-text-small uk-text-muted">Địa chỉ thường trú</span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="uk-width-large-1-2">
+                                    <h4 class="heading_c uk-margin-small-bottom">Công việc</h4>
+                                    <ul class="md-list">
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#">@Model.Job</a></span>
+                                                <span class="uk-text-small uk-text-muted">Công việc</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#">@Model.JobName</a></span>
+                                                <span class="uk-text-small uk-text-muted">Vị trí</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#">@Model.ContractType</a></span>
+                                                <span class="uk-text-small uk-text-muted">Loại hợp đồng</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#"></a>@Model.StartingSalagy</span>
+                                                <span class="uk-text-small uk-text-muted">Lương khởi đầu</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#">@Model.GiftSalary</a></span>
+                                                <span class="uk-text-small uk-text-muted">Thưởng</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="md-list-content">
+                                                <span class="md-list-heading"><a href="#">@Model.WorkingDate</a></span>
+                                                <span class="uk-text-small uk-text-muted">Ngày bắt đầu làm việc</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="user_profile_gallery" data-uk-check-display class="uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4" data-uk-grid="{gutter: 4}">
+                                <div>
+                                    <a href="@Model.Image" data-uk-lightbox="{group:'user-photos'}">
+                                        <img src="@Model.Image" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-large-3-10">
+                <div class="md-card">
+                    <div class="md-card-content">
+                        <div class="uk-margin-medium-bottom">
+                            <h3 class="heading_c uk-margin-bottom" style="font-weight: 1000">KHỞI TẠO VÀ CHỈNH SỬA</h3>
+                            <ul class="md-list md-list-addon">
+                                <li>
+                                    <div class="md-list-addon-element">
+                                        <i class="md-list-addon-icon uk-text-success uk-icon-calendar"></i>
+                                    </div>
+                                    <div class="md-list-content">
+                                        <span class="md-list-heading">@Model.CreatedDate</span>
+                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Ngày tạo hồ sơ</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="md-list-addon-element">
+                                        <i class="md-list-addon-icon uk-text-warning uk-icon-user"></i>
+                                    </div>
+                                    <div class="md-list-content">
+                                        <span class="md-list-heading">@Model.CreatedBy</span>
+                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Người tạo hồ sơ</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="md-list-addon-element">
+                                        <i class="md-list-addon-icon uk-text-success uk-icon-edit"></i>
+                                    </div>
+                                    <div class="md-list-content">
+                                        <span class="md-list-heading">@Model.ModifiedDate</span>
+                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Lần cuối cập nhật</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="md-list-addon-element">
+                                        <i class="md-list-addon-icon  uk-text-warning uk-icon-user-plus"></i>
+                                    </div>
+                                    <div class="md-list-content">
+                                        <span class="md-list-heading">@Model.ModifiedBy</span>
+                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Người cập nhật</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 class="heading_c uk-margin-bottom" style="font-weight: 1000">THÔNG TIN THÊM</h3>
+                        <ul class="md-list md-list-addon uk-margin-bottom">
+                            <li>
+                                <div class="md-list-addon-element">
+                                    <i class="md-list-addon-icon  uk-text-success uk-icon-code"></i>
+                                </div>
+                                <div class="md-list-content">
+                                    <span class="md-list-heading">@Model.Code</span>
+                                    <span class="uk-text-small uk-text-muted">Mã nhân viên</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="md-list-addon-element">
+                                    <i class="md-list-addon-icon uk-text-success uk-icon-info"></i>
+                                </div>
+                                <div class="md-list-content">
+                                    <span class="md-list-heading">@Model.IdentityCard</span>
+                                    <span class="uk-text-small uk-text-muted">Chứng minh nhân dân</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="md-list-addon-element">
+                                    <i class="md-list-addon-icon uk-icon-info-circle"></i>
+                                </div>
+                                <div class="md-list-content">
+                                    <span class="md-list-heading">@Model.Religion</span>
+                                    <span class="uk-text-small uk-text-muted">Tôn giáo</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a class="md-btn md-btn-flat md-btn-flat-primary" href="#">Show all</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>

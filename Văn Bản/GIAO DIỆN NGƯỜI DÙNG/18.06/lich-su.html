@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--NOTE
+   jqueryUI ui-* classes in *.html = NONE
+   osw class => optimized-min_4.css , optimized-min_6.css, optimized-min_8.css, optimized-min_9.css
+   font => sanofi\css\specific-ve-vi.css
+   file css, js (optimized.* js, css) => Jquery-UI 
+   title = element.title => (google search -> ) 
+   role = css.style (custom CSS)
+   data-* => js.customAttribute => get, set, use (Custom classes, IDs)
+   customAttribute.id => backend.search
+   osw-* => jqueryUI.customAttribute => get, set, use... (scr = jquery-UI.js)
+   https://jqueryui.com/
+   -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="vi">
+    <!--<![endif]-->
+<head>
+   <!--UTF-8 -> font-->
+   <meta charset="UTF-8">
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <!--Bootstrap 4.4.1-->
+   <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+   <link href="css/optimized-min_2.css" rel="stylesheet">
+   <link href="css/optimized-min_1.css" rel="stylesheet">
+   <link href="css/optimized-min.css" rel="stylesheet">
+   <link href="css/optimized-min_3.css" rel="stylesheet">
+   <!--Js -> getTime()-->
+   <meta name="VIcurrentDateTime" content="637245865902585830">
+   <script type="text/javascript" src="js/VisitorIdentification.js"></script>
+   <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HMKLHX');
+   </script>
+   <!-- notag -->
+   <link href="css/specific-ve-vi.css" type="text/css" rel="stylesheet">
+   <title>MATT</title>
+   <link rel="canonical">
+   <link href="https://www.sanofi.com.vn:443/-/media/Project/One-Sanofi-Web/shared/layout/favicon.png" rel="shortcut icon">
+   <!--facebook -> search-->
+   <meta content="Trang chủ - Sanofi ở Việt Nam" property="og:title">
+   <meta content="https://www.sanofi.com.vn/" property="og:url">
+   <!--SEO -> google search-->
+   <meta content="Trang chủ" name="description">
+   <meta content="Giới thiệu, chăm sóc sức khỏe, hành trình, sức khỏe, nhu cầu, giải pháp, trách nhiệm cộng đồng, nghề nghiệp, văn hóa doanh nghiệp" name="keywords">
+   <!--twitter -> search-->
+   <meta content="Trang chủ - Sanofi ở Việt Nam" property="twitter:title">
+   <meta content="summary_large_image" property="twitter:card">
+   <!--respondsive-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!--custom.css -> footer + color-->
+   <link href="css/custom.css" type="text/css" rel="stylesheet">
+</head>
+<!--osw class-->
+<body class="default-device osw osw-main-underheader osw-color-darkgrey osw-bg-palegrey bodyclass">
+   <div class="component osw-backtotop osw-backtotop-label-none osw-backtotop-default">
+      <div class="component-content">
+         <a href="#" aria-label="Trở lại đầu trang" class="">
+         <i class="fa fa-chevron-up" aria-hidden="true"></i>
+         </a>
+      </div>
+   </div>
+   <div id="wrapper">
+   <!-- #header -->
+      <header>
+         <div id="header" class="">
+            <div class="component osw-gridxy-container grid-container full">
+               <div class="component osw-gridx grid-x align-middle osw-header osw-bg-transparent osw-bgstrength-dark">
+                  <div class="component image osw-header-logo osw-js-removedefaultinline cell shrink align-self-middle">
+                     <div class="component-content">
+                        <a id="logo-nav" title="Trang chủ" href="index.html" style="background-image: url('img/matt_logo.jpg');">
+                           <img src="img/matt_logo.jpg" alt="matt_logo" width="70" height="56" data-variantfieldname="Image">
+                        </a>    
+                     </div>
+                  </div>
+                  <div class="component content cell auto align-self-middle large-shrink">
+                     <div class="component-content">
+                        <div class="grid-y align-center osw-header-message">
+                           <div class="cell osw-header-message-line1 field-value"> Ch&#224;o mừng bạn đến với</div>
+                           <div class="cell osw-header-message-line2 field-value">Mái Ấm Truyền Tin</div>
+                        </div>
+                     </div>
+                  </div>
+                  <nav class="navbar navbar-expand-lg navbar-light text-center">
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                           <li class="nav-item active">
+                              <a class="nav-link" href="index.html">Trang chủ<span class="sr-only">(current)</span></a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="lich-su.html">Lịch sử</a>
+                           </li>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Tiếng Việt
+                              </a>
+                              <div class="dropdown-menu bg-dcolor" aria-labelledby="navbarDropdown" style="animation: appear 500ms">
+                                 <a class="dropdown-item active" href="#">Tiếng Việt</a>
+                                 <div class="dropdown-divider"></div>
+                                 <a class="dropdown-item" href="#">English</a>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </nav>
+                  <div class="component container cell shrink align-self-stretch show-for-large-only osw-header-tools mr-0">
+                     <div class="component-content">
+                        <div class="component osw-gridx grid-x align-center-middle">
+                           <div class="component image osw-js-removedefaultinline osw-search-selector cell shrink align-self-middle">
+                              <div class="component-content">
+                                 <a title="Tìm kiếm" href="tim-kiem.html">
+                                    <div class="osw-search-selector-content">
+                                       <div class="osw-search-selector-image">
+                                          <img src="img/osw-search-header-color.png" alt="Busca" width="24" height="24" data-variantitemid="{9FBBCDE5-769D-4417-A992-6A92501E96D2}" data-variantfieldname="Image">
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="component image osw-js-removedefaultinline osw-nav-mobile-open cell shrink align-self-middle hide-for-large">
+                     <div class="component-content">
+                        <a title="Tìm kiếm" href="tim-kiem.html">
+                           <div class="osw-search-selector-content">
+                              <div class="osw-search-selector-image"><img src="img/osw-search-header-white.png" alt="Busca" width="24" height="24" data-variantitemid="{9FBBCDE5-769D-4417-A992-6A92501E96D2}" data-variantfieldname="Image"></div>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="component image osw-js-removedefaultinline osw-nav-mobile-open cell shrink align-self-middle hide-for-large">
+                     <div class="component-content">
+                        <a title="Nav Mobile Launcher" href="#" onclick="appendNav('header')">
+                           <img src="img/osw-nav-mobile-launcher.png" alt="Navigation" width="128" height="128" data-variantitemid="{89B0294C-88CA-40F4-B5BB-0433329BFD98}" data-variantfieldname="Image">
+                        </a>    
+                     </div>
+                  </div>
+               </div>
+               <div class="component osw-gridx grid-x align-center-middle osw-nav-mobile-container osw-nav-mobile-container-closed">
+                  <div class="component plain-html cell auto hide-for-large">
+                     <div class="component-content">
+                        <nav aria-live="assertive" aria-atomic="true" role="navigation tree" class="osw-nav-mobile"></nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+   <!-- /#header -->
+   <!-- #content -->
+      <main>
+         <div class="bg-color color-block border-bottom border-danger" style="height: 14rem"></div>
+         <div class="container-fluid p-0 event-div" style="min-height: 400px;">
+            <ul class="block-div">
+               <div class="p-3 bg-dcolor" style="width: fit-content; height: fit-content;">
+                  <ul class="text-cont">
+                     <li>Title</li>
+                     <li>
+                        <ul class="pl-3" id="event-list">
+                           <li id="event1" data-related-events='["event2", "event3", "event4"]'>
+                              <a href="#">con1</a>
+                              <p class="hiddenContent">dasd1</p>
+                           </li>
+                           <li id="event2" data-related-events='["event1", "event3", "event4"]'>
+                              <a href="#">con2</a>
+                              <p class="hiddenContent">asds2</p>
+                           </li>
+                           <li id="event3" data-related-events='["event1", "event2", "event4"]'>
+                              <a href="#">con3</a>
+                              <p class="hiddenContent">asds3</p>
+                           </li>
+                           <li id="event4" data-related-events='["event1", "event2", "event3"]'>
+                              <a href="#">con4</a>
+                              <p class="hiddenContent">asds4</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+               <div class="block-div color-block" id="event-choice" style="width: 100%;">
+                  <div class="item-center px-5" id="event-chosen" style="width: 50em;">
+                     <h1>default chosen event</h1>
+                  </div>
+                  <div class="mx-4" id="parallelogram"></div>
+                  <div class="item-center px-5" id="event-related" style="width: 20em;">
+                     <ul>
+                        <li>default related event 1</li>
+                        <li>default related event 2</li>
+                     </ul>
+                  </div>
+               </div>
+            </ul>
+         <div class="text-info container mt-5" id="hiddenContentDiv">
+            <p>hiddenContentDiv content blah blah</p>
+         </div>
+      </main>
+   <!-- /#content -->
+   <!-- #footer -->
+   <footer class="container-fluid bg-dcolor p-5">
+      <div class="container my-5" style="display: grid; place-items: center;">
+         <p>Stay in touch! Subscribe to our mailing list for the latest updates.</p>
+         <form class="form-inline mt-5">
+            <div class="form-group mx-sm-3 mb-2">
+               <label for="inputEmail" class="sr-only">Password</label>
+               <input class="rounded-pill" type="email" id="inputEmail" placeholder="Email*" aria-required="true" aria-invalid="true">            
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+               <label for="inputFirstName" class="sr-only">FirstName</label>
+               <input class="rounded-pill" type="text" id="inputFirstName" placeholder="First Name*" aria-required="true" aria-invalid="true">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+               <label for="inputLastName" class="sr-only">LastName</label>
+               <input class="rounded-pill" type="text" id="inputLastName" placeholder="Last Name*" aria-required="true" aria-invalid="true">
+            </div>
+         </form>
+         <button type="submit" class="btn btn-primary mb-5">Submit</button>
+         <p>This is a very long slogan.</p>
+         <a class="navbar-brand m-3 p-0 my-5" href="#">
+            <img class="rounded-pill" src="img/matt_logo.jpg" width="70" height="70" alt="logo">
+         </a>
+         <ul id="footer-nav" style="display: flex; flex-direction: row;">
+         </ul>
+         <ul id="icon-nav" class="my-5">
+            <a href="https://www.facebook.com/M%C3%A1i-%E1%BA%A4m-Truy%E1%BB%81n-Tin-712547722195087/">
+               <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+         </ul>
+         <h1 class="my-5">
+            Đc: 923/5 Tân Kỳ Tân Quý,P. Bình Hưng Hoà A,Q.Bình Tân
+         </h1>
+         <h1 class="mt-5 font-italic">
+            2020 "icon-copyright" @ Mái Ấm Truyền Tin
+         </h1>
+      </div>
+   </footer>
+   <!-- /#footer -->
+   <script src="js/custom.js"></script>
+   <script src="js/optimized-min_7.js"></script><script src="js/optimized-min_5.js"></script><script src="js/optimized-min_1.js"></script><script src="js/optimized-min.js"></script><script src="js/optimized-min_4.js"></script><script src="js/optimized-min_3.js"></script><script src="js/optimized-min_2.js"></script><script src="js/optimized-min_6.js"></script><!-- /#wrapper -->
+   </div>
+</body>
+</html>

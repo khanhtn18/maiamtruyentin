@@ -1,0 +1,112 @@
+/* lich-su */
+.event-nav .dropdown {
+    margin: 1em auto;
+    width: fit-content;
+}
+.event-nav .dropdown * {
+    font-size: 1em;
+}
+.event-nav .dropdown-menu {
+    text-align: center;
+    padding: 2em 1em;
+    width: 15em;
+    right: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+.event-nav .dropdown-menu a {
+    color: black !important;
+    font-size: 1em;
+}
+.event-nav .dropdown-menu a:hover {
+    color: white !important;
+}
+.list-div {
+    width: 100%;
+    padding: 5em 0;
+}
+.list-div li {
+    width: 100%;
+}
+.list-div li > div {
+    padding: 1em;
+}
+.list-div li > div > h1 {
+    background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em !important;
+    font-weight: bold;
+}
+.list-div li > div > p {
+    width: 60%;
+}
+.list-div li > .event-item-right > p,
+.list-div li > .event-item-right > h1 {
+    text-align: right;
+    margin-left: auto !important;
+}
+.event-item-right .event-img {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+.event-item-left {
+    width: 50%;
+    margin-left: calc(50% - .2em);
+    border-left: .2em solid gray;
+}
+.event-item-right {
+    width: 50%;
+    margin-right: calc(50% - .2em);
+    border-right: .2em solid gray;
+}
+.event-item-mid {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+.event-item-mid > p {
+    margin: 0 auto !important;
+}
+#event1::after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgb(248, 42, 6);
+    margin-right: .2em;
+    border: .2em solid gray;
+}
+#event-end::before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(29, 219, 108);
+    margin-right: .2em;
+    border: .2em solid gray;
+}
+/* respondsive */
+@media only screen and (max-width: 600px) {
+    .list-div li > div > h1 {
+        font-size: 2em !important;
+    }
+    .list-div li > div > p {
+        width: 100%;
+    }
+    .event-nav a {
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .list-div li > div > h1 {
+        font-size: 1em !important;
+    }
+}

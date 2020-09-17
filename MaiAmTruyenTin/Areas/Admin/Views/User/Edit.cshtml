@@ -1,0 +1,151 @@
+﻿@model Model.EF.User
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section jsFooter {
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor1 = CKEDITOR.replace('txtDetails', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        var editor2 = CKEDITOR.replace('txtAchievements', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+    </script>
+}
+
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">CHỈNH SỬA TÀI KHOẢN NGƯỜI DÙNG</h3>
+            <div class="md-card-content">
+                @using (Html.BeginForm("Edit", "User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.UserName)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+                    @*<div class="uk-grid">
+                <div class="uk-width-medium-1-1 parsley-row">
+                    <label>@Html.DisplayNameFor(model => model.Password)<span class="req">*</span></label>
+                    @Html.PasswordFor(model => model.Password, new { @class = "md-input form-control" })
+                </div>
+            </div>*@
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Address)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Address, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Email)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "md-input form-control" })
+                        </div>
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Phone)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <p>
+                                <label>TRẠNG THÁI<span class="req">*</span></label>
+                                <input type="checkbox" name="Status" data-md-icheck>
+                            </p>
+                        </div>
+                    </div>
+                    @*<div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row" style="display: inline">
+                            <label for="Image">ẢNH ĐẠI DIỆN (609x406)</label>
+                            <br />
+                            <div class="uk-form-file md-btn lg md-btn-success" id="btnSelectImage">
+                                <input style="width:100%" placeholder="Chọn hình ảnh..." value="@Model.Image" class="form-control" id="txtImage" name="Image" readonly title="Vui lòng click vào để upload hình ảnh" />
+                            </div>
+                            <div>
+                                <a href="@Model.Image" data-uk-lightbox="{group:'user-photos'}">
+                                    <img src="@Model.Image" style="width:10%" alt="" /> (Hình hiện tại)
+                                </a>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <div class="uk-grid">
+                        <label>@Html.DisplayNameFor(model => model.Image)<span class="req">*</span></label>
+                            <div class="uk-width-1-1">
+                            <div class="uk-form-file md-btn md-btn-success" id="btnSelectImage">
+                                Select
+                            </div>
+                            <div class="uk-form-file uk-text-primary"><input id="txtImage" name="Image" value="@Model.Image" class="k-input" readonly></div>
+
+                            <div style="padding-top: 2%">
+                                <a href="@Model.Image" data-uk-lightbox="{group:'user-photos'}">
+                                    <img src="@Model.Image" style="width:10%" alt="" /> (Hình hiện tại)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="uk-input-group">
+                        <input type="submit" class="md-btn md-btn-primary" value="TẠO MỚI" />
+                        <a href="@Url.Action("Index", "User")" class="md-btn md-btn-danger">HỦY BỎ</a>
+                        <a href="@Url.Action("Index", "User")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>
+
+
+
+
+
+
+

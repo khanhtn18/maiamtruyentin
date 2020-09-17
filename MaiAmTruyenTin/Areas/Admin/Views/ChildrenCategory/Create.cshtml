@@ -1,0 +1,98 @@
+﻿@model Model.EF.ChildrenCategory
+
+@{
+    ViewBag.Title = "Thêm mới loại trẻ";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+@section jsFooter {
+    <script>
+
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+    </script>
+}
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ DANH MỤC TRẺ EM</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">THÊM MỚI DANH MỤC TRẺ EM</h3>
+            <div class="md-card-content">
+                @using (Html.BeginForm("Create", "ChildrenCategory", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                            <input type="text" name="Name" id="Name" required class="md-input" />
+                        </div>
+                    </div>
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.MetaTitle)<span class="req">*</span></label>
+                            <input type="text" name="MetaTitle" id="MetaTitle" required class="md-input" />
+                        </div>
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.SeoTitle)<span class="req">*</span></label>
+                            <input type="text" name="SeoTitle" id="SeoTitle" required class="md-input" />
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.MetaDescriptions)<span class="req">*</span></label>
+                            <textarea name="MetaDescriptions" id="MetaDescriptions" required class="md-input"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.CreatedDate)<span class="req">*</span></label>
+                            <input type="text" name="CreatedDate" id="CreatedDate" required class="md-input" value="@DateTime.Now.ToString()" />
+                        </div>
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.CreatedBy)<span class="req">*</span></label>
+                            @Html.DropDownListFor(model => model.CreatedBy, ViewBag.UserID as SelectList, new { @class = "md-input" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <p class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Status)<span class="req">*</span></label>
+                            <input type="checkbox" data-val="true" id="Status" name="Status" value="true" data-md-icheck>
+                        </p>
+                    </div>
+                    <div class="uk-input-group">
+                        <input type="submit" class="md-btn md-btn-primary" value="TẠO MỚI" />
+                        <a href="@Url.Action("Index", "ChildrenCategory")" class="md-btn md-btn-danger">HỦY BỎ</a>
+                        <a href="@Url.Action("Index", "ChildrenCategory")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>

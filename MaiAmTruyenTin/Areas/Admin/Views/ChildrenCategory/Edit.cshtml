@@ -1,0 +1,83 @@
+﻿@model Model.EF.ChildrenCategory
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ DANH MỤC TRẺ EM</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">CHỈNH SỬA DANH MỤC TRẺ EM</h3>
+            <div class="md-card-content">
+                @using (Html.BeginForm("Edit", "ChildrenCategory", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.SeoTitle)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.SeoTitle, new { @class = "md-input form-control" })
+                        </div>
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.MetaTitle)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.MetaTitle, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.MetaDescriptions)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.MetaDescriptions, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.ModifiedDate)<span class="req">*</span></label>
+                            <input type="text" id="ModifiedDate" name="ModifiedDate" value="@DateTime.Now.ToString()" class="md-input" />
+                        </div>
+                        <div class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.ModifiedBy)<span class="req">*</span></label>
+                            @Html.DropDownListFor(model => model.ModifiedBy, ViewBag.UserID as SelectList, new { @class = "md-input" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <p class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Status)<span class="req">*</span></label>
+                            <input type="checkbox" data-val="true" id="Status" name="Status" value="true" checked data-md-icheck>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="uk-input-group">
+                        <input type="submit" class="md-btn md-btn-primary" value="CẬP NHẬT" />
+                        <a href="@Url.Action("Index", "ChildrenCategory")" class="md-btn md-btn-danger">HỦY BỎ</a>
+                        <a href="@Url.Action("Index", "ChildrenCategory")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>

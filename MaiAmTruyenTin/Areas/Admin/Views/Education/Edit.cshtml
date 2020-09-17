@@ -1,0 +1,99 @@
+﻿@model Model.EF.Education
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+@section jsFooter {
+    <script>
+        var editor1 = CKEDITOR.replace('txtDetails', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        var editor2 = CKEDITOR.replace('txtAchievements', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/Assets/admin/js/plugins/ckeditor/config.js',
+        });
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+    </script>
+}
+
+
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ THỂ LOẠI HỌC VẤN</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">CHỈNH SỬA THỂ LOẠI HỌC VẤN</h3>
+            <div class="md-card-content">
+                @using (Html.BeginForm("Edit", "Education", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Code)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Code, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "md-input form-control" })
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <label>@Html.DisplayNameFor(model => model.ModifiedBy)<span class="req">*</span></label>
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            @Html.DropDownListFor(model => model.ModifiedBy, ViewBag.UserID as SelectList, "-- Please Select --", new { @class = "md-input", required = "required" })
+                        </div>
+                    </div>
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.ModifiedDate)<span class="req">*</span></label>
+                            <input type="text" name="ModifiedDate" id="ModifiedDate" required class="md-input" value="@DateTime.Now.ToString()" />
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <p class="uk-width-medium-1-2 parsley-row">
+                            <label>@Html.DisplayNameFor(model => model.Status)<span class="req">*</span></label>
+                            <input type="checkbox" id="Status" name="Status" data-md-icheck>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="uk-input-group">
+                        <input type="submit" class="md-btn md-btn-primary" value="CẬP NHẬT" />
+                        <a href="@Url.Action("Index", "Education")" class="md-btn md-btn-danger">HỦY BỎ</a>
+                        <a href="@Url.Action("Index", "Education")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>
+

@@ -1,0 +1,89 @@
+﻿@model Model.EF.Content
+
+@{
+    var dao = Model.Name;
+    ViewBag.Title = "var";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content" class="">
+    <div class="component osw-homepage osw-page-content-offset-none">
+        <div class="component-content">
+            <div class="osw-page-header">
+                <div class="component osw-gridcontainerline grid-container full">
+                    <div class="component osw-gridx grid-x">
+                        <div class="component osw-contentblock osw-contentblock-imagefull osw-contentblock-imagefull-contentposition-010 osw-contentblock-imagefull-update cell small-12 medium-12 large-12 osw-bgfiltercolor-black osw-bgfilteropacity-030 osw-bgstrength-dark osw-color-white osw-contentblock-imagefull-cover osw-contentblock-titlesize-h2 osw-minheight-medium osw-paddingbottom-large osw-paddingtop-2large osw-paddingright-2large osw-paddingleft-2large text-center">
+                            <div class="component-content">
+                                <div class="osw-contentblock-imagefull-container">
+                                    <div class="osw-contentblock-imagefull-container-img">
+                                        <img src="~/Assets/client/img/banner/tintuc.png" alt="" width="5197" height="3465" data-variantitemid="{2EC5E74F-07DD-4E3A-A74C-D96317D20023}" data-variantfieldname="Main Image">
+                                    </div>
+                                    <div class="osw-contentblock-imagefull-container-content">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div class="osw-contentblock-imagefull-container-content-top">
+                                            <div class="osw-contentblock-title">
+                                                <h1 class="field-title" style="text-transform: uppercase;">
+                                                    TIN TỨC
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+
+                                        <div class="osw-contentblock-imagefull-container-content-middle">
+                                            <div class="osw-contentblock-maintext field-text mt-3">
+                                                Đội Ngũ Đứng Sau Hỗ Trợ Mạng Lưới Thông Tin Với Tâm Huyết Giúp Ích Cho Cộng Đồng
+                                            </div>
+                                        </div>
+                                        <div class="osw-contentblock-imagefull-container-content-bottom">
+                                            <div class="osw-contentblock-additionaltext field-additional-text">
+                                                Trung gian kết nối - Cuộc đời thiện nguyện
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <br />                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="component osw-gridcontainerline grid-container contained mb-5">
+    <div class="component osw-gridx grid-x grid-margin-x grid-margin-y">
+        <div class="component content small-12">
+            <div class="component-content">
+                <div class="field-content">
+                    <p class="osw-color-white">|</p>
+                </div>
+            </div>
+        </div>
+        <div class="component rich-text small-12">
+            <div class="component-content" style=" margin-left: 500px">
+                <h2 class="osw-color-white osw-color-sanofiblue"><strong>&nbsp;<br>&nbsp;TIN TỨC<br></strong></h2>
+            </div>
+        </div>
+        <div class="component rich-text small-12" style="width: 70%; padding: 50px 50px 50px 50px; margin-left: 180px">
+            <div class="component-content">
+                <h3 style="color: rgb(45, 46, 130)"><strong>@Model.Name</strong></h3>
+                <p class="component-content">@Model.CreatedDate</p>
+            </div>
+            <div class="component-content">
+                @Html.Raw(Model.Details)
+            </div>
+        </div>
+    </div>
+</div>
+
+

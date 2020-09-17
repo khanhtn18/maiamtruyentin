@@ -1,0 +1,85 @@
+﻿@model Model.EF.ChildrenCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+.
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ DANH MỤC TRẺ EM</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">THÔNG TIN DANH MỤC: @Model.Name</h3>
+            <div class="md-card-content">
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-1 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                        <input value="@Model.Name" readonly type="text" name="Name" id="Name" required class="md-input" />
+                    </div>
+                </div>
+
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.MetaTitle)<span class="req">*</span></label>
+                        <input value="@Model.MetaTitle" readonly type="text" name="MetaTitle" id="MetaTitle" required class="md-input" />
+                    </div>
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.SeoTitle)<span class="req">*</span></label>
+                        <input value="@Model.SeoTitle" readonly type="text" name="SeoTitle" id="SeoTitle" required class="md-input" />
+                    </div>
+                </div>
+
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-1 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.MetaDescriptions)<span class="req">*</span></label>
+                        <input value="@Model.MetaDescriptions" readonly name="MetaDescriptions" id="MetaDescriptions" required class="md-input" />
+                    </div>
+                </div>
+
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.CreatedDate)<span class="req">*</span></label>
+                        <input value="@Model.CreatedDate" readonly type="text" name="CreatedDate" id="CreatedDate" required class="md-input" value="@DateTime.Now.ToString()" />
+                    </div>
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.CreatedBy)<span class="req">*</span></label>
+                        <input value="@Model.CreatedBy" readonly type="text" name="CreatedBy" id="CreatedBy" required class="md-input" />
+                    </div>
+                </div>
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.ModifiedBy)<span class="req">*</span></label>
+                        <input value="@Model.ModifiedBy" readonly type="text" name="ModifiedBy" id="ModifiedBy" required class="md-input" value="@DateTime.Now.ToString()" />
+                    </div>
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.ModifiedBy)<span class="req">*</span></label>
+                        <input value="@Model.ModifiedBy" readonly type="text" name="ModifiedBy" id="ModifiedBy" required class="md-input" />
+                    </div>
+                </div>
+
+                <div class="uk-grid">
+                    <p class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.Status)<span class="req">*</span></label>
+                        <input readonly type="button" @(Model.Status ? Html.Raw("class = 'md-btn md-btn-primary'") : Html.Raw("class = 'md-btn md-btn-danger'") ) @*class="md-btn md-btn-primary"*@ data-val="true" name="Status" id="Status" value="@(Model.Status ? "Kích hoạt" : "Khóa")" data-md-icheck />
+                    </p>
+                </div>
+                <br />
+                <div class="uk-input-group">
+                    <a href="@Url.Action("Edit", "ChildrenCategory", new { id = Model.ID })" class="md-btn md-btn-success">CHỈNH SỬA</a>
+                    <a href="@Url.Action("Index", "ChildrenCategory")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>

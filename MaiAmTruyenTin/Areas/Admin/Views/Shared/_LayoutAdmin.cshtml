@@ -1,0 +1,558 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link href="/Assets/client/img/matt_logo.jpg" rel="shortcut icon">
+
+    <title>MÁI ẤM TRUYỀN TIN</title>
+    <link rel="stylesheet" href="/Assets/admin/bower_components/weather-icons/css/weather-icons.min.css" media="all">
+    <link rel="stylesheet" href="/Assets/admin/bower_components/metrics-graphics/dist/metricsgraphics.css">
+    <link rel="stylesheet" href="/Assets/admin/bower_components/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" href="/Assets/admin/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
+    <link rel="stylesheet" href="/Assets/admin/icons/flags/flags.min.css" media="all">
+    <link rel="stylesheet" href="/Assets/admin/css/main.min.css" media="all">
+
+    @* CALENDER INDEX *@
+
+    <!-- additional styles for plugins -->
+    <!-- kendo UI -->
+    <link rel="stylesheet" href="/Assets/admin/bower_components/kendo-ui/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="/Assets/admin/bower_components/kendo-ui/styles/kendo.material.min.css" />
+    <!-- uikit -->
+    <link rel="stylesheet" href="/Assets/admin/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
+
+
+    <!--FORMS WIZARD-->
+    <!-- uikit -->
+    <link rel="stylesheet" href="/Assets/admin/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
+    <!-- flag icons -->
+    <link rel="stylesheet" href="/Assets/admin/icons/flags/flags.min.css" media="all">
+    <!-- altair admin -->
+    <link rel="stylesheet" href="/Assets/admin/css/main.min.css" media="all">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        ul.pagination {
+            height: 50px !important;
+        }
+
+            ul.pagination li a {
+                color: white !important;
+            }
+
+            ul.pagination li {
+                list-style: none;
+                float: left;
+                margin: 2px;
+                padding: 8px;
+                height: 40px;
+                background: #2196f3;
+                color: white !important;
+            }
+
+                ul.pagination li.active {
+                    background: red;
+                }
+
+                    ul.pagination li.active a {
+                        color: white !important;
+                        border-radius: 79px;
+                        height: 100px !important;
+                        width: 50px !important;
+                    }
+    </style>
+</head>
+
+<body class="sidebar_main_open sidebar_main_swipe">
+    <header id="header_main">
+        <div class="header_main_content">
+            <nav class="uk-navbar">
+                <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left">
+                    <span class="sSwitchIcon"></span>
+                </a>
+                <a href="#" id="sidebar_secondary_toggle" class="sSwitch sSwitch_right sidebar_secondary_check">
+                    <span class="sSwitchIcon"></span>
+                </a>
+                <div id="menu_top_dropdown" class="uk-float-left uk-hidden-small">
+                    <div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}">
+                        <a href="#" class="top_menu_toggle"><i class="material-icons md-24">&#xE8F0;</i></a>
+                        <div class="uk-dropdown uk-dropdown-width-3">
+                            <div class="uk-grid uk-dropdown-grid" data-uk-grid-margin>
+                                <div class="uk-width-2-3">
+                                    <div class="uk-grid uk-grid-width-medium-1-3 uk-margin-top uk-margin-bottom uk-text-center" data-uk-grid-margin>
+                                        <a href="page_mailbox.html">
+                                            <i class="material-icons md-36 uk-text-warningy">&#xE158;</i>
+                                            <span class="uk-text-muted uk-display-block">Danh mục nhân viên</span>
+                                        </a>
+                                        <a href="page_invoices.html">
+                                            <i class="material-icons md-36">&#xE53E;</i>
+                                            <span class="uk-text-muted uk-display-block">Danh mục trẻ em</span>
+                                        </a>
+                                        <a href="page_chat.html">
+                                            <i class="material-icons md-36 md-color-red-600">&#xE0B9;</i>
+                                            <span class="uk-text-muted uk-display-block">Nhân viên</span>
+                                        </a>
+                                        <a href="page_scrum_board.html">
+                                            <i class="material-icons md-36">&#xE85C;</i>
+                                            <span class="uk-text-muted uk-display-block">Trẻ em</span>
+                                        </a>
+                                        <a href="page_snippets.html">
+                                            <i class="material-icons md-36">&#xE86F;</i>
+                                            <span class="uk-text-muted uk-display-block">Người dùng</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-3">
+                                    <ul class="uk-nav uk-nav-dropdown uk-panel">
+                                        <li class="uk-nav-header">ĐIỀU HƯỚNG</li>
+                                        <li><a href="components_accordion.html">Danh mục trẻ em</a></li>
+                                        <li><a href="components_buttons.html">Nhân viên</a></li>
+                                        <li><a href="components_notifications.html">Trẻ em</a></li>
+                                        <li><a href="components_sortable.html">Người dùng</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-navbar-flip">
+                    <ul class="uk-navbar-nav user_actions">
+                        <li><a href="#" id="full_screen_toggle" class="user_action_icon uk-visible-large"><i class="material-icons md-24 md-light">&#xE5D0;</i></a></li>
+                        <li><a href="#" id="main_search_btn" class="user_action_icon"><i class="material-icons md-24 md-light">&#xE8B6;</i></a></li>
+                        <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                            <a href="#" class="user_action_icon"><i class="material-icons md-24 md-light">&#xE7F4;</i><span class="uk-badge">16</span></a>
+                            <div class="uk-dropdown uk-dropdown-xlarge">
+                                <div class="md-card-content">
+                                    <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#header_alerts',animation:'slide-horizontal'}">
+                                        <li class="uk-width-1-2 uk-active"><a href="#" class="js-uk-prevent uk-text-small">Messages (12)</a></li>
+                                        <li class="uk-width-1-2"><a href="#" class="js-uk-prevent uk-text-small">Alerts (4)</a></li>
+                                    </ul>
+                                    <ul id="header_alerts" class="uk-switcher uk-margin">
+                                        <li>
+                                            <ul class="md-list md-list-addon">
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <span class="md-user-letters md-bg-cyan">yd</span>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="pages_mailbox.html">Enim neque est.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Fugit non sit neque commodi molestiae quia nobis quia.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="/Assets/admin/img/avatars/avatar_07_tn.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="pages_mailbox.html">Occaecati aut.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Quis incidunt facere corrupti dolor at aut harum eum a sed.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <span class="md-user-letters md-bg-light-green">hr</span>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="pages_mailbox.html">Saepe est.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Repellat veritatis et illum magnam a dignissimos consequuntur molestiae.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="/Assets/admin/img/avatars/avatar_02_tn.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="pages_mailbox.html">Non necessitatibus inventore.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Enim et explicabo laboriosam enim voluptatum odio ut.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="/Assets/admin/img/avatars/avatar_09_tn.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="pages_mailbox.html">Voluptatem ratione maxime.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Dignissimos occaecati in voluptatem eos reiciendis.</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="uk-text-center uk-margin-top uk-margin-small-bottom">
+                                                <a href="page_mailbox.html" class="md-btn md-btn-flat md-btn-flat-primary js-uk-prevent">Show All</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <ul class="md-list md-list-addon">
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-warning">&#xE8B2;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Voluptates assumenda.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Necessitatibus non vel magnam neque.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-success">&#xE88F;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Possimus eligendi.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Minus error quod impedit.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-danger">&#xE001;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Explicabo ut mollitia.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Perspiciatis ab nihil in sed.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-primary">&#xE8FD;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Modi sint dolor.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Amet et eum quo sed et.</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                            <a href="#" class="user_action_image">
+                            @*@try
+                            {
+                                if(Session["USER_SESSION"] == null)
+                                {
+                                    Response.Redirect("/Admin/Login/Login");
+                                }
+                                else
+                                {
+                                    Model.EF.User item = Session["USER_SESSION"] as Model.EF.User;
+                                    @Html.Raw(item.Name);
+                                }
+                            }
+                            catch
+                            {
+                                Response.Redirect("/Admin/Login/Login");
+                            }*@
+                            <img class="md-user-image" src="/Assets/admin/img/avatars/avatar_11_tn.png" alt="" /></a>
+                            <div class="uk-dropdown uk-dropdown-small">
+                                <ul class="uk-nav js-uk-prevent">
+                                    <li><a href="page_user_profile.html">Tài khoản</a></li>
+                                    <li><a href="page_settings.html">Đổi mật khẩu</a></li>
+                                    <li><a href="login.html">Thoát</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="header_main_search_form">
+            <i class="md-icon header_main_search_close material-icons">&#xE5CD;</i>
+            <form class="uk-form">
+                <input type="text" class="header_main_search_input" />
+                <button class="header_main_search_btn uk-button-link"><i class="md-icon material-icons">&#xE8B6;</i></button>
+            </form>
+        </div>
+    </header>
+    <aside id="sidebar_main">
+        <div class="sidebar_main_header" style="background:none; padding:10px; height:48px; text-align:center; vertical-align: middle; ">
+            <a href="@Url.Action("Index", "Home")"><h4 style="color: rgb(51, 153, 255)">MÁI ẤM TRUYỀN TIN</h4></a>
+        </div>
+        <div class="menu_section">
+            <ul>
+                <li class="current_section" title="Dashboard">
+                    <a href="@Url.Action("Index", "Home")">
+                        <span class="menu_icon"><img src="/Assets/admin/img/others/home.png" style="width:25px !important" /></span>
+                        <span class="menu_title">TRANG CHỦ</span>
+                    </a>
+                </li>
+                <!--DANH MỤC-->
+                <li title="Danh mục nhân viên và trẻ em">
+                    <a>
+                        <span class="menu_icon"><i class="material-icons md-36 uk-text-warning">list_alt</i>@*<img src="/Assets/admin\img\icon-techer.jpg" style="width:25px !important" />*@</span>
+                        <span class="menu_title">DANH MỤC</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a>
+                                <span class="menu_icon"><img src="/Assets/admin/img/others/icon-techer.jpg" style="width:25px !important" /></span>
+                                <span class="menu_title">TRẺ EM</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index", "ChildrenCategory")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                        <span class="menu_title">DANH SÁCH</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "ChildrenCategory")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                        <span class="menu_title">THÊM MỚI</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="menu_icon"><i class="material-icons uk-text-primary"></i>@*<img src="/Assets/admin\img\icon-techer.jpg" style="width:25px !important" />*@</span>
+                                <span class="menu_title">HỌC VẤN</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index", "Education")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                        <span class="menu_title">DANH SÁCH</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "Education")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                        <span class="menu_title">THÊM MỚI</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="menu_icon"><i class="material-icons uk-text-primary"></i>@*<img src="/Assets/admin\img\icon-techer.jpg" style="width:25px !important" />*@</span>
+                                <span class="menu_title">THIẾT BỊ - VẬT TƯ</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index", "SECategory")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                        <span class="menu_title">DANH SÁCH</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "SECategory")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                        <span class="menu_title">THÊM MỚI</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!--TRẺ EM-->
+                <li title="Quản lý danh sách trẻ">
+                    <a>
+                        <span class="menu_icon"><img src="/Assets/admin/img/others/studenticon.png" style="width:25px !important"></span>
+                        <span class="menu_title">TRẺ EM</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Children")">
+                                <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                <span class="menu_title">DANH SÁCH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Create", "Children")">
+                                <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                <span class="menu_title">THÊM MỚI</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--NHÂN VIÊN-->
+                <li title="Quản lý nhân viên">
+                    <a>
+                        <span class="menu_icon"><img src="~/Assets/admin/img/others/icon-techer.jpg" style="width:25px !important"></span>
+                        <span class="menu_title">NHÂN VIÊN</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Employee")">
+                                <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                <span class="menu_title">DANH SÁCH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Create", "Employee")">
+                                <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                <span class="menu_title">THÊM MỚI</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--TÌNH NGUYỆN VIÊN-->
+                <li title="Quản lý tình nguyện viên">
+                    <a>
+                        <span class="menu_icon"><img src="/Assets/admin/img/others/icon-volunteers.png" style="width:25px !important"></span>
+                        <span class="menu_title">TÌNH NGUYỆN VIÊN</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Volunteer")">
+                                <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                <span class="menu_title">DANH SÁCH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Create", "Volunteer")">
+                                <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                <span class="menu_title">THÊM MỚI</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--CƠ SỞ VẬT CHẤT-->
+                <li title="Quản lý cơ sở vật chất">
+                    <a>
+                        <span class="menu_icon"><img src="~/Assets/admin/img/others/infrastructure1.png" style="width:25px !important"></span>
+                        <span class="menu_title">CƠ SỞ VẬT CHẤT</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "SuppliesEquipment")">
+                                <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                <span class="menu_title">DANH SÁCH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Create", "SuppliesEquipment")">
+                                <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                <span class="menu_title">THÊM MỚI</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--MẪU VĂN BẢN-->
+                <li title="Quản lý mẫu văn bản">
+                    <a>
+                        <span class="menu_icon"><i class="material-icons uk-text-primary"></i></span>
+                        <span class="menu_title">MẪU VĂN BẢN</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Document")">
+                                <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                <span class="menu_title">DANH SÁCH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Create", "Document")">
+                                <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                <span class="menu_title">THÊM MỚI</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li title="Quản lý nâng cao">
+                    <a href="page_invoices.html">
+                        <span class="menu_icon"><img src="/Assets/admin/img/others/settings.jpg" style="width:25px !important" /></span>
+                        <span class="menu_title">QUẢN LÝ</span>
+                    </a>
+                    <ul>
+
+                        <li>
+                            <a href="page_invoices.html">
+                                <span class="menu_icon"><img src="/Assets/admin/img/others/user.png" style="width:25px !important" /></span>
+                                <span class="menu_title">NGƯỜI DÙNG</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index", "User")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-warning"></i></span>
+                                        <span class="menu_title">DANH SÁCH</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "User")">
+                                        <span class="menu_icon"><i class="material-icons uk-text-success"></i></span>
+                                        <span class="menu_title">THÊM MỚI</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside><!-- main sidebar end -->
+    <div id="page_content">
+        @RenderBody()
+    </div>
+    <div class="uk-modal uk-modal-dialog-replace uk-open" id="loading" aria-hidden="false" style="display:block;">
+        <div style="margin: 19% 45%">
+            <img src="/Assets/admin/img/others/loading.gif" style="border-radius: 50%; width: 100%" />
+        </div>
+    </div>
+    <!-- secondary sidebar -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#loading").hide();
+        });
+        function loadingform() {
+            $("#loading").show();
+        }
+        function unloadingform() {
+            $("#loading").hide();
+        }
+
+    </script>
+
+    <script>
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+    <script src="/Assets/admin/js/common.min.js"></script>
+    <script src="/Assets/admin/js/uikit_custom.min.js"></script>
+    <script src="/Assets/admin/js/altair_admin_common.min.js"></script>
+    <script src="/Assets/admin/bower_components/d3/d3.min.js"></script>
+    <script src="/Assets/admin/bower_components/metrics-graphics/dist/metricsgraphics.min.js"></script>
+    <script src="/Assets/admin/bower_components/peity/jquery.peity.min.js"></script>
+    <script src="/Assets/admin/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="/Assets/admin/bower_components/countUp.js/countUp.min.js"></script>
+    <script src="/Assets/admin/handlebars/handlebars.min.js"></script>
+    <script src="/Assets/admin/js/custom/handlebars_helpers.min.js"></script>
+    <script src="/Assets/admin/bower_components/clndr/src/clndr.js"></script>
+    <script src="/Assets/admin/bower_components/fitvids/jquery.fitvids.js"></script>
+    <script src="/Assets/admin/js/pages/dashboard.min.js"></script>
+    <script src="/Assets/admin/js/common.min.js"></script>
+    <script src="/Assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script src="/Assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    @* CALENDAR - INDEX *@
+    <script src="/Assets/admin/js/kendoui_custom.min.js"></script>
+    <script src="/Assets/admin/js/pages/kendoui.min.js"></script>
+
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

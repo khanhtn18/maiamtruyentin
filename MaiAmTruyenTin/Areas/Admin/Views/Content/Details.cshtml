@@ -1,0 +1,100 @@
+﻿@model Model.EF.Content
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="page_content_inner">
+    <h2 class="heading_b uk-margin-bottom">QUẢN LÝ TIN TỨC</h2>
+    <div class="md-card uk-margin-large-bottom">
+        <div class="md-card-content">
+            <h3 style="border: 1px solid rgb(33, 150, 243); padding: 15px 15px; background-color: rgb(33, 150, 243); color: white; font-size: 15px;">CHI TIẾT TIN TỨC</h3>
+            <div class="md-card-content">
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-1 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.Name)<span class="req">*</span></label>
+                        <input readonly type="text" name="Name" id="Name" required class="md-input" value="@Model.Name" />
+                    </div>
+                </div>
+                <div class="uk-grid">
+                    <div class="uk-width-1-1">
+                        <div class="uk-form-row">
+                            <label>@Html.DisplayNameFor(model => model.Description)<span class="req">*</span></label>
+                            <input readonly type="text" name="Description" id="Description" required class="md-input" value="@Model.Description" />
+                            @*<textarea readonly cols="30" rows="2" class="md-input" id="Description" name="Description" value="@Model.Description"></textarea>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.MetaTitle)<span class="req">*</span></label>
+                        <input readonly type="text" name="MetaTitle" id="MetaTitle" required class="md-input" value="@Model.MetaTitle" />
+                    </div>
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.CategoryID)<span class="req">*</span></label>
+                        @Html.DropDownListFor(model => model.CategoryID, ViewBag.CategoryList as SelectList, new { @class = "md-input", @disabled = "disabled" })
+                    </div>
+                </div>
+
+
+
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.MetaDescriptions)<span class="req">*</span></label>
+                        <input readonly type="text" name="MetaDescriptions" id="MetaDescriptions" required class="md-input" value="@Model.MetaDescriptions" />
+                    </div>
+                    <div class="uk-width-medium-1-2 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.MetaKeywords)<span class="req">*</span></label>
+                        <input readonly type="text" name="MetaKeywords" id="MetaKeywords" required class="md-input" value="@Model.MetaDescriptions" />
+                    </div>
+                </div>
+
+                <div class="uk-grid">
+                    <p class="uk-width-medium-1-3 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.Status)<span class="req">*</span></label>
+                        <input readonly type="button" id="Status" name="Status" class="md-btn md-btn-primary" @(Model.Status ? Html.Raw("class = 'md-btn md-btn-primary'") : Html.Raw("class = 'md-btn md-btn-danger'") ) value="@(Model.Status ? "Kích hoạt" : "Khóa")" data-md-icheck>
+                    </p>
+                    <div class="uk-width-medium-1-3 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.CreatedDate)<span class="req">*</span></label>
+                        <input readonly type="text" name="CreatedDate" id="CreatedDate" required class="md-input" value="@Model.CreatedDate" />
+                    </div>
+                    <div class="uk-width-medium-1-3 parsley-row">
+                        <label>@Html.DisplayNameFor(model => model.CreatedBy)<span class="req">*</span></label>
+                        <input readonly type="text" name="CreatedBy" id="CreatedBy" required class="md-input" value="@Model.CreatedBy" />
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <label>@Html.DisplayNameFor(model => model.Details)<span class="req">*</span></label>
+                    @Html.Raw(Model.Details)
+                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-1 parsley-row">
+                        <label for="Image">ẢNH ĐẠI DIỆN</label>
+                        <br />
+                        <div class="uk-form-file md-btn lg md-btn-success" id="btnSelectImage">
+                            <img src="@Model.Image" />
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+                @*<div class="uk-width-large-1-4 uk-width-medium-1-2">
+                        <div class="uk-input-group">
+                            <label>Button addon</label>
+                            <input readonly type="text" class="md-input" value="@Model"/>
+                            <span class="uk-input-group-addon"><a class="md-btn" href="#">Save</a></span>
+                        </div>
+                    </div>*@
+                <div class="uk-input-group">
+                    <a href="@Url.Action("Edit", "Content", new { id = Model.ID })" class="md-btn md-btn-success">CHỈNH SỬA</a>
+                    <a href="@Url.Action("Index", "Content")" class="md-btn md-btn-warning">QUAY LẠI DANH SÁCH</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\Model.dll.config
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\Model.dll
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\Model.pdb
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\EntityFramework.dll
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\EntityFramework.SqlServer.dll
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\EntityFramework.xml
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\EntityFramework.SqlServer.xml
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\obj\Debug\Model.csproj.CopyComplete
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\obj\Debug\Model.dll
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\obj\Debug\Model.pdb
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\obj\Debug\Model.csprojAssemblyReference.cache
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\PagedList.dll
+G:\Learning\Service Learning\Mái Ấm Truyền Tin Website\MaiAmTruyenTin\Model\bin\Debug\PagedList.xml
